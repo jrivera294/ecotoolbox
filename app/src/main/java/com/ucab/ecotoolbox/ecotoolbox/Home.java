@@ -4,17 +4,17 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.widget.ImageButton;
+import android.widget.Toast;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 
 
 
 public class Home extends ActionBarActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,4 +61,23 @@ public class Home extends ActionBarActivity {
             return rootView;
         }
     }
+
+//   Click RSS Feed
+     public void onClickF(View v) {
+            setContentView(R.layout.fragment_rss);
+    }
+//  Click Calculadora
+    public void onClickC(View v) {
+        setContentView(R.layout.fragment_calc);
+    }
+//  Click UV
+    public void onClickUV(View v) {
+        setContentView(R.layout.fragment_uv);
+    }
+//  Click mapa
+    public void onClickMaps(View v) {
+        setContentView(R.layout.fragment_map);
+    }
+
 }
+

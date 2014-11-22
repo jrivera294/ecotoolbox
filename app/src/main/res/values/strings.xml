@@ -4,5 +4,8 @@
     <string name="app_name">EcoToolbox</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="feed">feed</string>
+    <string name="calculadora">calculadora</string>
+    <string name="uv">uv</string>
+    <string name="mapa">map</string>
 </resources>
