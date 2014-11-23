@@ -40,12 +40,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/uv"
         android:contentDescription="uv"
-        android:background="@drawable/uv"
         android:clickable="true"
         android:onClick="onClickUV"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/uv" />
 
     <ImageButton
         android:layout_width="wrap_content"
