@@ -3,15 +3,15 @@ package com.ucab.ecotoolbox.ecotoolbox;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.widget.ImageButton;
 import android.widget.Toast;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 
 public class Home extends ActionBarActivity {
@@ -64,7 +64,13 @@ public class Home extends ActionBarActivity {
 
 //   Click RSS Feed
      public void onClickF(View v) {
-            setContentView(R.layout.fragment_rss);
+         Rssfeed.PlaceholderFragmentRss f4 = new Rssfeed.PlaceholderFragmentRss();
+         FragmentManager fragmentManager = getSupportFragmentManager();
+         FragmentTransaction ft = fragmentManager.beginTransaction();
+         ft.replace(R.id.container, f4); // f2_container is your FrameLayout container
+         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+         ft.addToBackStack(null);
+         ft.commit();
     }
 //  Click Calculadora
     public void onClickC(View v) {

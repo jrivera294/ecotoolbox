@@ -2,28 +2,28 @@
 <pre-dex-items>
 
     <item
-        dex="C:\Users\Jose Gabriel\AndroidStudioProjects\EcoToolbox\app\build\intermediates\pre-dexed\debug\classes-766ad00fdb1f3e7d1a80d463b2bcb370fb4d0b33.jar"
-        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\EcoToolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        dex="C:\Users\Toshiba PC\Documents\UCAB\Septimo Semestre\Metodologia del Software\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-7d1d7f2c59f7c4cc83c4b5410e499c3d04781097.jar"
+        jar="C:\Users\Toshiba PC\Documents\UCAB\Septimo Semestre\Metodologia del Software\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
     <item
-        dex="C:\Users\Jose Gabriel\AndroidStudioProjects\EcoToolbox\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-28b36e7532267dc1a07cf209662bdacec1cb436e.jar"
-        jar="C:\Users\Jose Gabriel\AppData\Local\Android\android-studio1\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
-    <item
-        dex="C:\Users\Jose Gabriel\AndroidStudioProjects\EcoToolbox\app\build\intermediates\pre-dexed\debug\classes-40121ac129dd6c4638fdc8c04845f6bdff0691f2.jar"
-        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\EcoToolbox\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
+        dex="C:\Users\Toshiba PC\Documents\UCAB\Septimo Semestre\Metodologia del Software\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-be7b80655f6bdc45c40ce4a49cd4a3c753a21a44.jar"
+        jar="C:\Users\Toshiba PC\Documents\UCAB\Septimo Semestre\Metodologia del Software\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
     <item
-        dex="C:\Users\Jose Gabriel\AndroidStudioProjects\EcoToolbox\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-a680e550a9b2234358db6c93ed526086a28307cf.jar"
-        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\EcoToolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        dex="C:\Users\Toshiba PC\Documents\UCAB\Septimo Semestre\Metodologia del Software\ecotoolbox\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-d9ac343bd9d6cd6145f28513d200ab22613918df.jar"
+        jar="C:\Users\Toshiba PC\Documents\UCAB\Septimo Semestre\Metodologia del Software\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="C:\Users\Toshiba PC\Documents\UCAB\Septimo Semestre\Metodologia del Software\ecotoolbox\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-3957055056e693516a5d79a1b915bb61d7d06da1.jar"
+        jar="C:\Users\Toshiba PC\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
 
 </pre-dex-items>
