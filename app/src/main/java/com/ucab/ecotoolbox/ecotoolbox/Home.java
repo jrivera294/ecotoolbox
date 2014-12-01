@@ -82,6 +82,7 @@ public class Home extends ActionBarActivity {
     }
 //  Click mapa
     public void onClickMaps(View v) {
+
         setContentView(R.layout.fragment_map);
     }
 
