@@ -7,11 +7,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.widget.Toast;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.net.Uri;
 
 
 public class Home extends ActionBarActivity {
@@ -82,8 +85,13 @@ public class Home extends ActionBarActivity {
     }
 //  Click mapa
     public void onClickMaps(View v) {
-
-        setContentView(R.layout.fragment_map);
+        MapsActivity.PlaceholderFragmentMaps mapa = new MapsActivity.PlaceholderFragmentMaps();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.container, mapa); // f2_container is your FrameLayout container
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
 }
