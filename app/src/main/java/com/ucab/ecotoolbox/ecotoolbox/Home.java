@@ -85,14 +85,17 @@ public class Home extends ActionBarActivity {
     }
 //  Click mapa
     public void onClickMaps(View v) {
-        MapsActivity.PlaceholderFragmentMaps mapa = new MapsActivity.PlaceholderFragmentMaps();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.container, mapa); // f2_container is your FrameLayout container
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.addToBackStack(null);
-        ft.commit();
+        Intent mainIntent = new Intent(this, MapsActivity.class);
+        startActivity(mainIntent);
     }
+//        MapsActivity.PlaceholderFragmentMaps mapa = new MapsActivity.PlaceholderFragmentMaps();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction ft = fragmentManager.beginTransaction();
+//        ft.replace(R.id.container, mapa); // f2_container is your FrameLayout container
+//        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+//        ft.addToBackStack(null);
+//        ft.commit();
+//    }
 
 }
 

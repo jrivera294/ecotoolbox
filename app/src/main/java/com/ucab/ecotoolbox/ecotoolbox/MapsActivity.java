@@ -7,16 +7,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-
-import android.content.Context;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
-import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -25,6 +16,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.security.Provider;
 
 public class MapsActivity extends FragmentActivity {
 
@@ -59,19 +52,6 @@ public class MapsActivity extends FragmentActivity {
      * method in {@link #onResume()} to guarantee that it will be called.
      */
 
-    public static class PlaceholderFragmentMaps extends Fragment {
-
-        public PlaceholderFragmentMaps() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_maps, container, false);
-            return rootView;
-        }
-    }
-
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
@@ -85,6 +65,31 @@ public class MapsActivity extends FragmentActivity {
         }
     }
 
+    private Location getLocation(){
+        Location myLocation = null;
+      try {
+          LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+//
+          Log.d("Log", locationManager.toString());
+
+          // Create a criteria object to retrieve provider
+          Criteria criteria = new Criteria();
+//
+          // Get the name of the best provider
+          String provider = locationManager.getBestProvider(criteria, true);
+
+          Log.d("Log", provider.toString());
+
+          // Get Current Location
+          myLocation = locationManager.getLastKnownLocation(provider);
+
+          Log.d("Log", myLocation.toString());
+      }catch(Exception e){
+              Log.d("Error", "Actica GPS e internet");
+      }
+      return myLocation;
+
+    }
     /**
      * This is where we can add markers or lines, add listeners or move the camera. In this case, we
      * just add a marker near Africa.
@@ -96,21 +101,31 @@ public class MapsActivity extends FragmentActivity {
 
         // Enable MyLocation Layer of Google Map
         mMap.setMyLocationEnabled(true);
-
+/*dese aqui*/
         // Get LocationManager object from System Service LOCATION_SERVICE
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+//        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+////
+//        Log.d("Log",locationManager.toString());
+//
+//        // Create a criteria object to retrieve provider
+//        Criteria criteria = new Criteria();
+////
+//        // Get the name of the best provider
+//        String provider = locationManager.getBestProvider(criteria, true);
+//
+//        Log.d("Log", provider.toString());
+//
+//        // Get Current Location
+//        Location myLocation = locationManager.getLastKnownLocation(provider);
+//
+//        Log.d("Log", myLocation.toString());
 
-        // Create a criteria object to retrieve provider
-        Criteria criteria = new Criteria();
+/* hasta aqui en una funcion getlocation que evuelva Location */
 
-        // Get the name of the best provider
-        String provider = locationManager.getBestProvider(criteria, true);
-
-        // Get Current Location
-        Location myLocation = locationManager.getLastKnownLocation(provider);
-
+        Location myLocation = getLocation();
         // set map type
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
 
         // Get latitude of the current location
         double latitude = myLocation.getLatitude();
