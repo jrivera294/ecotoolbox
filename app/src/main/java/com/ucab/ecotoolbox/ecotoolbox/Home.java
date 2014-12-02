@@ -81,7 +81,13 @@ public class Home extends ActionBarActivity {
     }
 //  Click UV
     public void onClickUV(View v) {
-        setContentView(R.layout.fragment_uv);
+        FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.container,subirfoto); // f2_container is your FrameLayout container
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 //  Click mapa
     public void onClickMaps(View v) {
