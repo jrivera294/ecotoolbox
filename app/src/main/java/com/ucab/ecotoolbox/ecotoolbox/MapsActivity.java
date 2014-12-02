@@ -69,21 +69,12 @@ public class MapsActivity extends FragmentActivity {
         Location myLocation = null;
       try {
           LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//
-          Log.d("Log", locationManager.toString());
-
           // Create a criteria object to retrieve provider
           Criteria criteria = new Criteria();
-//
           // Get the name of the best provider
           String provider = locationManager.getBestProvider(criteria, true);
-
-          Log.d("Log", provider.toString());
-
           // Get Current Location
           myLocation = locationManager.getLastKnownLocation(provider);
-
-          Log.d("Log", myLocation.toString());
       }catch(Exception e){
               Log.d("Error", "Actica GPS e internet");
       }
@@ -101,26 +92,6 @@ public class MapsActivity extends FragmentActivity {
 
         // Enable MyLocation Layer of Google Map
         mMap.setMyLocationEnabled(true);
-/*dese aqui*/
-        // Get LocationManager object from System Service LOCATION_SERVICE
-//        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-////
-//        Log.d("Log",locationManager.toString());
-//
-//        // Create a criteria object to retrieve provider
-//        Criteria criteria = new Criteria();
-////
-//        // Get the name of the best provider
-//        String provider = locationManager.getBestProvider(criteria, true);
-//
-//        Log.d("Log", provider.toString());
-//
-//        // Get Current Location
-//        Location myLocation = locationManager.getLastKnownLocation(provider);
-//
-//        Log.d("Log", myLocation.toString());
-
-/* hasta aqui en una funcion getlocation que evuelva Location */
 
         Location myLocation = getLocation();
         // set map type
@@ -145,10 +116,13 @@ public class MapsActivity extends FragmentActivity {
             public void onMapLongClick(LatLng point) {
                 // Creating an instance of MarkerOptions
                 MarkerOptions markerOptions = new MarkerOptions();
+                //Marker marker;
                 // Setting position for the marker
                 markerOptions.position(point);
                 // Setting custom icon for the marker
                 markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
+
+                //chennai=mMap.addMarker(new MarkerOptions().position(new LatLng(13.0810, 80.274)).anchor(2, 1).title("Android").snippet("Snippet").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
                 // Setting title for the infowindow
                 markerOptions.title("Basura");
                 //markerOptions.title(point.latitude + ","+point.longitude);
