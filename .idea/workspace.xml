@@ -43,13 +43,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.ucab.ecotoolbox.ecotoolbox" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81552d6e-c6bd-41fc-9c9e-5c03f7022234" name="Default" comment="Menu+mapa+tutorial">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/intro_tutorial.xml" />
-      <change type="DELETED" beforePath="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\build\intermediates\model_data.bin" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/ucab/ecotoolbox/ecotoolbox/Home.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/ucab/ecotoolbox/ecotoolbox/Home.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_20_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_20_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_20_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_20_0_0.xml" />
+    <list default="true" id="81552d6e-c6bd-41fc-9c9e-5c03f7022234" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EcoToolbox.iws" />
@@ -1717,7 +1711,11 @@
       <created>1417546847152</created>
       <updated>1417546847152</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Menu+mapa+tutorial">
+      <created>1417561997837</created>
+      <updated>1417561997837</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
