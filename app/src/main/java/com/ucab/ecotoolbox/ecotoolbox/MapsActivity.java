@@ -15,6 +15,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.security.Provider;
@@ -114,20 +115,14 @@ public class MapsActivity extends FragmentActivity {
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng point) {
-                // Creating an instance of MarkerOptions
                 MarkerOptions markerOptions = new MarkerOptions();
-                //Marker marker;
-                // Setting position for the marker
+
                 markerOptions.position(point);
-                // Setting custom icon for the marker
+
                 markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
 
-                //chennai=mMap.addMarker(new MarkerOptions().position(new LatLng(13.0810, 80.274)).anchor(2, 1).title("Android").snippet("Snippet").icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
-                // Setting title for the infowindow
-                markerOptions.title("Basura");
-                //markerOptions.title(point.latitude + ","+point.longitude);
+                markerOptions.title("Basura").icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
 
-                // Adding the marker to the map
                 mMap.addMarker(markerOptions);
             }
         });
