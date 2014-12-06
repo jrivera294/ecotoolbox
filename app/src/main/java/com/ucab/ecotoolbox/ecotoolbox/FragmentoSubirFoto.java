@@ -2,6 +2,8 @@ package com.ucab.ecotoolbox.ecotoolbox;
 
 import android.app.Activity;
 //import android.app.Fragment;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -23,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -63,9 +66,10 @@ public class FragmentoSubirFoto extends Fragment{
         private Button botonEnviar;
         private static final int TAKE_PICTURE = 1;
         private ImageView iv;
+        private ImageButton ib;
         private Uri imageUri;
         private String imagePath;
-        private String[] opcTipo = new String[]{"Basura","Hueco","Derrame Petrolero","Perro Muerto"};
+        private String[] opcTipo = new String[]{"Basura","Evento","Reciclaje"};
         public static String dataFromAsyncTask="no cambio";
 
         //variables a enviale al servidor
@@ -137,16 +141,22 @@ public class FragmentoSubirFoto extends Fragment{
                                          }
             );
             //coloco la imagen previa a mostrar
-            iv = (ImageView)view.findViewById(R.id.ivAhri);
+            // = (ImageView)view.findViewById(R.id.ivAhri);
+      //      ib = (ImageButton)view.findViewById(R.id.ibCamara);
 
-            botonCamara = (Button)view.findViewById(R.id.bTomarFoto);
-            botonCamara.setOnClickListener(new View.OnClickListener() {
+            ib = (ImageButton)view.findViewById(R.id.ibCamara);
+            ib.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     tomarFoto(v);
                 }
             });
 
+            if (imagePath!=null){
+                Bitmap bm = getBitmapFoto(imagePath);
+
+                ib.setImageBitmap(bm);
+            }
             botonEnviar = (Button)view.findViewById(R.id.bEnviarPto);
             botonEnviar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -195,7 +205,7 @@ public class FragmentoSubirFoto extends Fragment{
             if (resultCode == Activity.RESULT_OK) {
                 Bitmap rotatedBitmap = getBitmapFoto(imagePath);
                 if (rotatedBitmap != null)
-                    iv.setImageBitmap(rotatedBitmap);
+                    ib.setImageBitmap(rotatedBitmap);
             }
         }
 
@@ -209,7 +219,7 @@ public class FragmentoSubirFoto extends Fragment{
 
                 Bitmap bm = BitmapFactory.decodeFile(rutaImagen, bmOptions);
                 Matrix matrix = new Matrix();
-                matrix.postRotate(90);
+                matrix.postRotate(0);
                 b = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), matrix, true);
             }
 
@@ -233,12 +243,17 @@ public class FragmentoSubirFoto extends Fragment{
                 this.categoria = categoria;
                 this.imagePath = imagePath;
 
+        }
+
+            public boolean isOnline() {
+                ConnectivityManager cm =
+                        (ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo netInfo = cm.getActiveNetworkInfo();
+                if (netInfo != null && netInfo.isConnected()) {
+                    return true;
+                }
+                return false;
             }
-
-
-
-
-
 
             @Override
             protected JSONObject doInBackground(String... params) {
@@ -250,7 +265,7 @@ public class FragmentoSubirFoto extends Fragment{
                 JSONObject jsonObject = null;
                 Bitmap bm = getBitmapFoto(imagePath);
 
-                if (bm != null) {
+                if (bm != null && isOnline()) {
 
                     String signature=null;
 

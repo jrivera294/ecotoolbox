@@ -123,6 +123,8 @@ public class Home extends ActionBarActivity {
 //  Click UV
     public void onClickUV(View v) {
         FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
+        subirfoto.setLat(1.5f);
+        subirfoto.setLon(14.4f);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.replace(R.id.container,subirfoto); // f2_container is your FrameLayout container

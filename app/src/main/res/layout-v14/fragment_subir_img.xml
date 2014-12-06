@@ -20,7 +20,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Crear un Eco-Punto"
             android:textSize="30dp"
-            android:textColor="#008000"
+            android:textColor="@android:color/holo_green_light"
             android:gravity="center"
             android:id="@+id/tvTitulo" />
 
@@ -66,21 +66,23 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Nombre"
-            android:textColor="#008000"
-            android:id="@+id/tvNombre" />
+            android:textColor="@android:color/holo_green_light"
+            android:id="@+id/tvNombre"
+            />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etNombre"
-            android:text="" />
+            android:text=""
+            android:maxLength="50"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Tipo"
-            android:textColor="#008000"
+            android:textColor="@android:color/holo_green_light"
             android:typeface="monospace"
             android:id="@+id/tvTipoPunto" />
 
@@ -94,14 +96,15 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Descripcion"
-            android:textColor="#008000"
+            android:textColor="@android:color/holo_green_light"
             android:id="@+id/tvDesc" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/etDescripcion"
-            android:text="" />
+            android:text=""
+            android:maxLength="500"/>
 
         <Button
             android:layout_width="91dp"
