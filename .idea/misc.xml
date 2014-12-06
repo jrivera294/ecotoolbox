@@ -111,8 +111,5 @@
       <Port>5050</Port>
     </configuration>
   </component>
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\Toshiba PC\AppData\Roaming\Subversion</configuration>
-  </component>
 </project>
 

@@ -1,31 +1,61 @@
 package com.ucab.ecotoolbox.ecotoolbox;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
-import android.widget.Toast;
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.net.Uri;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 
 public class Home extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
+
+//        setContentView(R.layout.intro_tutorial);
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isfirstrun",true);
+//
+        if(isFirstRun){
+            setContentView(R.layout.intro_tutorial);
+            VideoView video = (VideoView) findViewById(R.id.videoView);
+            video.setVideoPath("android.resource://"+getPackageName()+"/"+ R.drawable.example);
+            video.setMediaController(new MediaController(this));
+            video.requestFocus();
+            video.start();
+
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_tuto, new PlaceholderFragmentV())
+                        .commit();
+            }
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isfirstrun",false).commit();
+
+            video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    setContentView(R.layout.activity_home);
+                    getSupportFragmentManager().beginTransaction()
+                            .add(R.id.container, new PlaceholderFragment())
+                            .commit();
+                }
+            });
+
+        }
+        else {
+            setContentView(R.layout.activity_home);
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, new PlaceholderFragment())
+                        .commit();
+            }
         }
     }
 
@@ -48,7 +78,18 @@ public class Home extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public static class PlaceholderFragmentV extends Fragment {
 
+        public PlaceholderFragmentV() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.intro_tutorial, container, false);
+            return rootView;
+        }
+    }
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -91,13 +132,8 @@ public class Home extends ActionBarActivity {
     }
 //  Click mapa
     public void onClickMaps(View v) {
-        MapsActivity.PlaceholderFragmentMaps mapa = new MapsActivity.PlaceholderFragmentMaps();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.container, mapa); // f2_container is your FrameLayout container
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.addToBackStack(null);
-        ft.commit();
+        Intent mainIntent = new Intent(this, MapsActivity.class);
+        startActivity(mainIntent);
     }
 
 }
