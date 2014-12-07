@@ -21,7 +21,7 @@ public class Home extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        setContentView(R.layout.intro_tutorial);
+////        setContentView(R.layout.intro_tutorial);
         Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isfirstrun",true);
 //
         if(isFirstRun){
@@ -122,15 +122,15 @@ public class Home extends ActionBarActivity {
     }
 //  Click UV
     public void onClickUV(View v) {
-        FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
-        subirfoto.setLat(1.5f);
-        subirfoto.setLon(14.4f);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.container,subirfoto); // f2_container is your FrameLayout container
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.addToBackStack(null);
-        ft.commit();
+//        FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
+//        subirfoto.setLat(1.5f);
+//        subirfoto.setLon(14.4f);
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction ft = fragmentManager.beginTransaction();
+//        ft.replace(R.id.container,subirfoto); // f2_container is your FrameLayout container
+//        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+//        ft.addToBackStack(null);
+//        ft.commit();
     }
 //  Click mapa
     public void onClickMaps(View v) {
