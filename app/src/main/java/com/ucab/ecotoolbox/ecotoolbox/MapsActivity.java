@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -30,6 +31,20 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.security.Provider;
 
 public class MapsActivity extends FragmentActivity {
@@ -136,7 +151,7 @@ public class MapsActivity extends FragmentActivity {
     private void setUpMap() {
 
 
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker").snippet("Snippet"));
+        //mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker").snippet("Snippet"));
 
         // Enable MyLocation Layer of Google Map
         mMap.setMyLocationEnabled(true);
@@ -146,7 +161,7 @@ public class MapsActivity extends FragmentActivity {
         if(myLocation==null){
             Toast.makeText(getApplicationContext(), "Ha ocurrido un error. Revise GPS y su conexion a internet",
                     Toast.LENGTH_SHORT).show();
-            return;
+
         }
         // set map type
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -156,7 +171,8 @@ public class MapsActivity extends FragmentActivity {
 
         // Get longitude of the current location
         double longitude = myLocation.getLongitude();
-
+//        ObtenerPuntos op = new ObtenerPuntos((float)latitude,(float)longitude,5);
+//        op.execute();
         // Create a LatLng object for the current location
         LatLng latLng = new LatLng(latitude, longitude);
 
@@ -176,14 +192,15 @@ public class MapsActivity extends FragmentActivity {
                 markerOptions.title("Basura");
 
                 mMap.addMarker(markerOptions);
-//                MapsActivity.PlaceholderFragmentMaps map = new   MapsActivity.PlaceholderFragmentMaps();
-//                FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//                getChildFragmentManager().beginTransaction()
-//                        .replace(R.id.map, subirfoto) // f2_container is your FrameLayout container
-//                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                        .addToBackStack(null)
-//                        .commit();
+
+                MapsActivity.PlaceholderFragmentMaps map = new   MapsActivity.PlaceholderFragmentMaps();
+                FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.map, subirfoto) // f2_container is your FrameLayout container
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -193,5 +210,104 @@ public class MapsActivity extends FragmentActivity {
         LatLng coordinate = new LatLng(latitude, longitude);
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 12);
         mMap.animateCamera(yourLocation);
+    }
+
+    public class ObtenerPuntos  extends AsyncTask<String,Integer,JSONObject> {
+
+        private Integer radio;
+        private Float lon;
+        private Float lat;
+        public ObtenerPuntos(float lat , float lon , int radio){
+            this.radio = radio;
+            this.lon = lon;
+            this.lat = lat;
+        }
+
+        @Override
+        protected JSONObject doInBackground(String... params) {
+            String url = "http://api2-ecotoolbox.rhcloud.com/api/nearbyPoints/"+this.lat.toString()+"/"+this.lon.toString()+"/"+this.radio.toString();
+            BufferedReader in = null;
+            JSONObject respuestaPunto = null;
+            try
+            {
+                HttpClient client = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+                request.setURI(new URI(url));
+                HttpResponse response = client.execute(request);
+
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+
+            try{// PROCESO LA RESPUESTA DEL SERVER
+                InputStream is = null;
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
+                StringBuilder sb = new StringBuilder();
+                String line = "0";
+
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+                is.close();
+
+                String result=sb.toString();
+                respuestaPunto  = new JSONObject(result); //CREO EL JSONObject para luego obtener el url
+
+
+            }catch(Exception e){
+
+            }
+            return respuestaPunto;
+        }
+
+
+        protected void onPostExecute(JSONObject respuestaPuntos) {
+            super.onPostExecute(respuestaPuntos);
+            try {
+                String status = respuestaPuntos.getString("status");
+                if (status=="200"){
+                    JSONArray arregloPtos = respuestaPuntos.getJSONArray("data");
+                        for (int i = 0 ; arregloPtos.getJSONObject(i)!=null ; i++){// ojo
+                            MarkerOptions markerOptions = new MarkerOptions();
+                            double lat = arregloPtos.getJSONObject(i).getDouble("lat");
+                            double lon = arregloPtos.getJSONObject(i).getDouble("lng");
+
+                            markerOptions.position(new LatLng(lat, lon));
+
+                            switch(arregloPtos.getJSONObject(i).getInt("categoria")){
+                                case 0: markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
+                                        markerOptions.title("Basura");
+                                        break;
+                                case 1: markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.logo_evento));
+                                        markerOptions.title("Evento");
+                                        break;
+                                case 2: markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.logo_reciclaje));
+                                        markerOptions.title("Reciclar");
+                                        break;
+                            }
+
+                           // markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
+
+
+
+                            mMap.addMarker(markerOptions);
+
+
+                    }
+
+                }else if (status=="404")
+                {
+                    Toast.makeText(getApplicationContext(), "Ha ocurrido un error obteniendo puntos del servidor",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
