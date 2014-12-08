@@ -90,16 +90,17 @@ public class MapsActivity extends FragmentActivity {
 
     private Location getLocation(){
         Location myLocation = null;
+        boolean gpsIsEnabled;
+        boolean networkIsEnabled;
         try {
             LocationManager locationManager = (LocationManager)getSystemService(getBaseContext().LOCATION_SERVICE);
-
-//            if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
                 // Create a criteria object to retrieve provider
                 Criteria criteria = new Criteria();
                 // Get the name of the best provider
                 String provider = locationManager.getBestProvider(criteria, true);
                 // Get Current Location
-                myLocation = locationManager.getLastKnownLocation(provider);
+//            myLocation = locationManager.getLast
+                myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
 //            }else{
 //                Toast.makeText(getApplicationContext(), "Revise GPS y su conexion a internet",
