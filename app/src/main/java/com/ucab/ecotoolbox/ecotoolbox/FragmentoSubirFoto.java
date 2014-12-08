@@ -106,6 +106,7 @@ public class FragmentoSubirFoto extends Fragment{
                 lon = savedInstanceState.getFloat("lon");
                 lat = savedInstanceState.getFloat("lat");
             }
+
         }
 
         public void onSaveInstanceState(Bundle outState) {

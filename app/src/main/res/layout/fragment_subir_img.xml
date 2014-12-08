@@ -113,8 +113,9 @@
             android:gravity="center"
             android:layout_margin="5dp"
 
-            android:background="@android:color/holo_green_light"
+
             android:textColor="#ffffffff"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/holo_green_light" />
     </LinearLayout>
 </ScrollView>
