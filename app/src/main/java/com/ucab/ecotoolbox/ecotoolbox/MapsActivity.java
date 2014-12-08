@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -115,18 +116,18 @@ public class MapsActivity extends FragmentActivity {
 
     }
 
-    public static class PlaceholderFragmentMaps extends Fragment {
-
-        public PlaceholderFragmentMaps() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_map, container, false);
-            return rootView;
-        }
-    }
+//    public static class PlaceholderFragmentMaps extends Fragment {
+//
+//        public PlaceholderFragmentMaps() {
+//        }
+//
+//        @Override
+//        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                                 Bundle savedInstanceState) {
+//            View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+//            return rootView;
+//        }
+//    }
     /**
      * This is where we can add markers or lines, add listeners or move the camera. In this case, we
      * just add a marker near Africa.
@@ -134,11 +135,7 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-
-
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker").snippet("Snippet"));
-
-        // Enable MyLocation Layer of Google Map
+      // Enable MyLocation Layer of Google Map
         mMap.setMyLocationEnabled(true);
 
         Location myLocation = getLocation();
@@ -176,14 +173,16 @@ public class MapsActivity extends FragmentActivity {
                 markerOptions.title("Basura");
 
                 mMap.addMarker(markerOptions);
-//                MapsActivity.PlaceholderFragmentMaps map = new   MapsActivity.PlaceholderFragmentMaps();
-//                FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//                getChildFragmentManager().beginTransaction()
-//                        .replace(R.id.map, subirfoto) // f2_container is your FrameLayout container
-//                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                        .addToBackStack(null)
-//                        .commit();
+
+                FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                       .replace(R.id.map,subirfoto)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                        .addToBackStack(null)
+                        .commit();
+
             }
         });
 
