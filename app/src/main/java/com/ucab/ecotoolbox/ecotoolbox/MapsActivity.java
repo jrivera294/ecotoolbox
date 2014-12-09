@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -31,6 +32,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -68,6 +70,10 @@ public class MapsActivity extends FragmentActivity {
         else{ setUpMapIfNeeded();}
     }
 
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -125,6 +131,7 @@ public class MapsActivity extends FragmentActivity {
         }catch(Exception e){
             Toast.makeText(getApplicationContext(), "Revise GPS y su conexion a internet",
                     Toast.LENGTH_SHORT).show();
+            
         }
         return myLocation;
 
@@ -193,12 +200,11 @@ public class MapsActivity extends FragmentActivity {
 
                 mMap.addMarker(markerOptions);
 
-                MapsActivity.PlaceholderFragmentMaps map = new   MapsActivity.PlaceholderFragmentMaps();
                 FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.map, subirfoto) // f2_container is your FrameLayout container
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .addToBackStack(null)
                         .commit();
             }
@@ -228,12 +234,15 @@ public class MapsActivity extends FragmentActivity {
             String url = "http://api2-ecotoolbox.rhcloud.com/api/nearbyPoints/"+this.lat.toString()+"/"+this.lon.toString()+"/"+this.radio.toString();
             BufferedReader in = null;
             JSONObject respuestaPunto = null;
+            InputStream is = null;
             try
             {
                 HttpClient client = new DefaultHttpClient();
                 HttpGet request = new HttpGet();
                 request.setURI(new URI(url));
                 HttpResponse response = client.execute(request);
+                HttpEntity entidad = response.getEntity();
+                is = entidad.getContent();
 
             }
             catch (IOException e)
@@ -244,7 +253,7 @@ public class MapsActivity extends FragmentActivity {
             }
 
             try{// PROCESO LA RESPUESTA DEL SERVER
-                InputStream is = null;
+
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
                 StringBuilder sb = new StringBuilder();
                 String line = "0";
