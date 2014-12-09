@@ -2,6 +2,9 @@ package com.ucab.ecotoolbox.ecotoolbox;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -15,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -28,6 +32,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -65,6 +70,10 @@ public class MapsActivity extends FragmentActivity {
         else{ setUpMapIfNeeded();}
     }
 
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -113,9 +122,6 @@ public class MapsActivity extends FragmentActivity {
                 // Get Current Location
 //            myLocation = locationManager.getLast
                 myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if(myLocation==null){
-                myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            }
 
 //            }else{
 //                Toast.makeText(getApplicationContext(), "Revise GPS y su conexion a internet",
@@ -125,6 +131,7 @@ public class MapsActivity extends FragmentActivity {
         }catch(Exception e){
             Toast.makeText(getApplicationContext(), "Revise GPS y su conexion a internet",
                     Toast.LENGTH_SHORT).show();
+            
         }
         return myLocation;
 
@@ -161,19 +168,18 @@ public class MapsActivity extends FragmentActivity {
         if(myLocation==null){
             Toast.makeText(getApplicationContext(), "Ha ocurrido un error. Revise GPS y su conexion a internet",
                     Toast.LENGTH_SHORT).show();
-            return;
 
         }
         // set map type
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         // Get latitude of the current location
-        final double latitude = myLocation.getLatitude();
+        double latitude = myLocation.getLatitude();
 
         // Get longitude of the current location
-        final double longitude = myLocation.getLongitude();
-
-
+        double longitude = myLocation.getLongitude();
+//        ObtenerPuntos op = new ObtenerPuntos((float)latitude,(float)longitude,5);
+//        op.execute();
         // Create a LatLng object for the current location
         LatLng latLng = new LatLng(latitude, longitude);
 
@@ -193,9 +199,6 @@ public class MapsActivity extends FragmentActivity {
                 markerOptions.title("Basura");
 
                 mMap.addMarker(markerOptions);
-
-                ObtenerPuntos op = new ObtenerPuntos((float)latitude,(float)longitude,5);
-                op.execute();
 
                 FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -217,9 +220,9 @@ public class MapsActivity extends FragmentActivity {
 
     public class ObtenerPuntos  extends AsyncTask<String,Integer,JSONObject> {
 
-        private int radio;
-        private float lon;
-        private float lat;
+        private Integer radio;
+        private Float lon;
+        private Float lat;
         public ObtenerPuntos(float lat , float lon , int radio){
             this.radio = radio;
             this.lon = lon;
@@ -228,15 +231,18 @@ public class MapsActivity extends FragmentActivity {
 
         @Override
         protected JSONObject doInBackground(String... params) {
-            String url = "http://api2-ecotoolbox.rhcloud.com/api/nearbyPoints/"+Float.toString(this.lat)+"/"+Float.toString(this.lon)+"/"+Integer.toString(this.radio);
+            String url = "http://api2-ecotoolbox.rhcloud.com/api/nearbyPoints/"+this.lat.toString()+"/"+this.lon.toString()+"/"+this.radio.toString();
             BufferedReader in = null;
             JSONObject respuestaPunto = null;
+            InputStream is = null;
             try
             {
                 HttpClient client = new DefaultHttpClient();
                 HttpGet request = new HttpGet();
                 request.setURI(new URI(url));
                 HttpResponse response = client.execute(request);
+                HttpEntity entidad = response.getEntity();
+                is = entidad.getContent();
 
             }
             catch (IOException e)
@@ -247,7 +253,7 @@ public class MapsActivity extends FragmentActivity {
             }
 
             try{// PROCESO LA RESPUESTA DEL SERVER
-                InputStream is = null;
+
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
                 StringBuilder sb = new StringBuilder();
                 String line = "0";
@@ -274,7 +280,6 @@ public class MapsActivity extends FragmentActivity {
                 String status = respuestaPuntos.getString("status");
                 if (status=="200"){
                     JSONArray arregloPtos = respuestaPuntos.getJSONArray("data");
-
                         for (int i = 0 ; arregloPtos.getJSONObject(i)!=null ; i++){// ojo
                             MarkerOptions markerOptions = new MarkerOptions();
                             double lat = arregloPtos.getJSONObject(i).getDouble("lat");
@@ -294,7 +299,7 @@ public class MapsActivity extends FragmentActivity {
                                         break;
                             }
 
-                           markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
+                           // markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
 
 
 
