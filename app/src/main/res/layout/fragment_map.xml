@@ -7,4 +7,13 @@
     tools:context=".MapsActivity$PlaceholderFragmentMaps"
     >
 
+    <ImageView
+        android:id="@+id/imagen"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="5dp"
+        android:adjustViewBounds="true" >
+    </ImageView>
+
+
 </RelativeLayout>
