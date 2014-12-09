@@ -2,9 +2,6 @@ package com.ucab.ecotoolbox.ecotoolbox;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -116,6 +113,9 @@ public class MapsActivity extends FragmentActivity {
                 // Get Current Location
 //            myLocation = locationManager.getLast
                 myLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if(myLocation==null){
+                myLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            }
 
 //            }else{
 //                Toast.makeText(getApplicationContext(), "Revise GPS y su conexion a internet",
@@ -161,18 +161,19 @@ public class MapsActivity extends FragmentActivity {
         if(myLocation==null){
             Toast.makeText(getApplicationContext(), "Ha ocurrido un error. Revise GPS y su conexion a internet",
                     Toast.LENGTH_SHORT).show();
+            return;
 
         }
         // set map type
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         // Get latitude of the current location
-        double latitude = myLocation.getLatitude();
+        final double latitude = myLocation.getLatitude();
 
         // Get longitude of the current location
-        double longitude = myLocation.getLongitude();
-//        ObtenerPuntos op = new ObtenerPuntos((float)latitude,(float)longitude,5);
-//        op.execute();
+        final double longitude = myLocation.getLongitude();
+
+
         // Create a LatLng object for the current location
         LatLng latLng = new LatLng(latitude, longitude);
 
@@ -193,12 +194,14 @@ public class MapsActivity extends FragmentActivity {
 
                 mMap.addMarker(markerOptions);
 
-                MapsActivity.PlaceholderFragmentMaps map = new   MapsActivity.PlaceholderFragmentMaps();
+                ObtenerPuntos op = new ObtenerPuntos((float)latitude,(float)longitude,5);
+                op.execute();
+
                 FragmentoSubirFoto subirfoto = new FragmentoSubirFoto();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.map, subirfoto) // f2_container is your FrameLayout container
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .addToBackStack(null)
                         .commit();
             }
@@ -214,9 +217,9 @@ public class MapsActivity extends FragmentActivity {
 
     public class ObtenerPuntos  extends AsyncTask<String,Integer,JSONObject> {
 
-        private Integer radio;
-        private Float lon;
-        private Float lat;
+        private int radio;
+        private float lon;
+        private float lat;
         public ObtenerPuntos(float lat , float lon , int radio){
             this.radio = radio;
             this.lon = lon;
@@ -225,7 +228,7 @@ public class MapsActivity extends FragmentActivity {
 
         @Override
         protected JSONObject doInBackground(String... params) {
-            String url = "http://api2-ecotoolbox.rhcloud.com/api/nearbyPoints/"+this.lat.toString()+"/"+this.lon.toString()+"/"+this.radio.toString();
+            String url = "http://api2-ecotoolbox.rhcloud.com/api/nearbyPoints/"+Float.toString(this.lat)+"/"+Float.toString(this.lon)+"/"+Integer.toString(this.radio);
             BufferedReader in = null;
             JSONObject respuestaPunto = null;
             try
@@ -271,6 +274,7 @@ public class MapsActivity extends FragmentActivity {
                 String status = respuestaPuntos.getString("status");
                 if (status=="200"){
                     JSONArray arregloPtos = respuestaPuntos.getJSONArray("data");
+
                         for (int i = 0 ; arregloPtos.getJSONObject(i)!=null ; i++){// ojo
                             MarkerOptions markerOptions = new MarkerOptions();
                             double lat = arregloPtos.getJSONObject(i).getDouble("lat");
@@ -290,7 +294,7 @@ public class MapsActivity extends FragmentActivity {
                                         break;
                             }
 
-                           // markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
+                           markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.basura));
 
 
 
