@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -61,9 +62,8 @@ import java.security.Provider;
 public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    private String urlImg;
-    private String descrip = "Not found";
     private Bitmap myBitmap;
+    private String foto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -167,7 +167,7 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-
+        MarkerOptions markerOptions;
 
         //mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker").snippet("Snippet"));
 
@@ -220,8 +220,21 @@ public class MapsActivity extends FragmentActivity {
 
 
             }
-        });
 
+        });
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Log.d("hola", "Asfg");
+                String snip =  marker.getSnippet();
+                String id = snip.substring(0,snip.length());
+                Log.d("idS", id);
+                ObtenerDetalle opi = new ObtenerDetalle(Integer.parseInt(id));
+                opi.execute();
+                return false;
+            }
+        });
         mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
 
         LatLng coordinate = new LatLng(latitude, longitude);
@@ -262,10 +275,8 @@ public class MapsActivity extends FragmentActivity {
     public class ObtenerDetalle  extends AsyncTask<String,Integer,JSONObject> {
 
         private Integer id;
-
         public ObtenerDetalle(int id) {
             this.id = id;
-
         }
 
         @Override
@@ -275,30 +286,6 @@ public class MapsActivity extends FragmentActivity {
             String url = "http://api2-ecotoolbox.rhcloud.com/api/points/" + this.id.toString();
             BufferedReader in = null;
             InputStream is = null;
-
-//            URL imageUrl = null;
-//            HttpURLConnection conn = null;
-//
-//            try {
-//
-//                imageUrl = new URL(urlImg);
-//                conn = (HttpURLConnection) imageUrl.openConnection();
-//                conn.connect();
-//
-//                BitmapFactory.Options options = new BitmapFactory.Options();
-//                options.inSampleSize = 5; // el factor de escala a minimizar la imagen, siempre es potencia de 2
-//
-//                myBitmap = BitmapFactory.decodeStream(conn.getInputStream(), new Rect(0, 0, 0, 0), options);
-//                ImageView imageView = (ImageView) findViewById(R.id.imagen);
-//                Log.d("BIT",myBitmap.toString());
-//                imageView.setImageBitmap(myBitmap);
-////                img.setImageBitmap(imagen);
-//
-//            } catch (IOException e) {
-//
-//                e.printStackTrace();
-//
-//            }
 
             try {
 
@@ -328,14 +315,26 @@ public class MapsActivity extends FragmentActivity {
 
                 String result = sb.toString();
                 respuesta = new JSONObject(result); //CREO EL JSONObject para luego obtener el url
-
-
+                JSONObject arregloPtosD = respuesta.getJSONObject("data");
+                foto= arregloPtosD.getString("foto");
 
             } catch (Exception e) {
                 Log.d("Problema Servidor: Get", "Servidor offline");
                 Log.d("Prob", e.toString());
             }
 
+            try {
+                URL urlImg = new URL(foto);
+                HttpURLConnection connection = (HttpURLConnection) urlImg.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                myBitmap = BitmapFactory.decodeStream(input);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
 //            }
 //            else{
 //                Toast.makeText(getApplicationContext(), "Revise su conexión a internet",
@@ -349,12 +348,41 @@ public class MapsActivity extends FragmentActivity {
             try {
                 String status = respuesta.getString("status");
                 if (status.compareTo("200")== 0){
-                    JSONObject arregloPtos = respuesta.getJSONObject("data");
+                    JSONObject arregloPtosD = respuesta.getJSONObject("data");
+                    Log.d("descripcion",arregloPtosD.getString("descripcion"));
+//                        MarkerOptions markerOptions = new MarkerOptions();
+                        final String nomb = arregloPtosD.getString("nombre");
+                        final String urlImg = arregloPtosD.getString("foto");
+                        final String descrip = arregloPtosD.getString("descripcion");
 
-                        MarkerOptions markerOptions = new MarkerOptions();
-                        urlImg = arregloPtos.getString("foto");
-                        descrip = new String (arregloPtos.getString("descripcion"));
-                        Log.d("copy", descrip);
+                    mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+                                // Use default InfoWindow frame
+                                @Override
+                                public View getInfoWindow(Marker arg0) {
+                                    return null;
+                                }
+
+                                // Defines the contents of the InfoWindow
+                                @Override
+                                public View getInfoContents(Marker arg0) {
+
+                                    // Getting view from the layout file info_window_layout
+
+                                    View v = getLayoutInflater().inflate(R.layout.fragment_map, null);
+                                    TextView nombre = (TextView) v.findViewById(R.id.nombreI);
+                                    TextView descripv = (TextView)v.findViewById(R.id.descripI);
+                                    nombre.setText("Nombre:"+nomb);
+                                    descripv.setText("Descripcion:"+descrip);
+                                    ImageView imageView = (ImageView)v.findViewById(R.id.imagen);
+                                    imageView.setImageBitmap(myBitmap);
+//                                    new DownloadImageTask(imageView).execute(urlImg);
+                                    return v;
+
+                                }
+                            });
+
+
 
                 }else if (status.compareTo("404")== 0)
                 {
@@ -439,7 +467,7 @@ public class MapsActivity extends FragmentActivity {
             super.onPostExecute(respuestaPuntos);
             try {
                 String status = respuestaPuntos.getString("status");
-                if (status.compareTo("200")== 0){
+                    if (status.compareTo("200")== 0){
                     JSONArray arregloPtos = respuestaPuntos.getJSONArray("data");
 
                         for (int i = 0 ; i<arregloPtos.length(); i++){// ojo
@@ -449,49 +477,23 @@ public class MapsActivity extends FragmentActivity {
                             double lon = arregloPtos.getJSONObject(i).getDouble("lng");
 
                             markerOptions.position(new LatLng(lat, lon));
-                            final int idDetalle = arregloPtos.getJSONObject(i).getInt("id");
-                            ObtenerDetalle opi = new ObtenerDetalle(arregloPtos.getJSONObject(i).getInt("id"));
-                            opi.execute();
-                            Log.d("d", descrip);
-//                            Log.d("ID",arregloPtos.getJSONObject(i).getString("id"));
+
+                            Log.d("ID",arregloPtos.getJSONObject(i).getString("id"));
                             switch(arregloPtos.getJSONObject(i).getInt("categoria")){
                                 case 0: markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_basura));
-                                        markerOptions.title("Basura").snippet(descrip);
+                                        markerOptions.title("Basura").snippet(arregloPtos.getJSONObject(i).getString("id".toString()));
 
                                         break;
                                 case 1: markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_evento));
-                                        markerOptions.title("Evento").snippet(descrip);
+                                        markerOptions.title("Evento").snippet(arregloPtos.getJSONObject(i).getString("id".toString()));
                                         break;
                                 case 2: markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_reciclaje));
-                                        markerOptions.title("Reciclar").snippet(descrip);
+                                        markerOptions.title("Reciclar").snippet(arregloPtos.getJSONObject(i).getString("id".toString()));
                                         break;
                             }
 
-//                            mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-//
-//                                // Use default InfoWindow frame
-//                                @Override
-//                                public View getInfoWindow(Marker arg0) {
-//                                    return null;
-//                                }
-//
-//                                // Defines the contents of the InfoWindow
-//                                @Override
-//                                public View getInfoContents(Marker arg0) {
-//
-//                                    // Getting view from the layout file info_window_layout
-//
-//                                    View v = getLayoutInflater().inflate(R.layout.fragment_map, null);
-////                                    ImageView imageView = (ImageView) findViewById(R.id.imagen);
-////                                    imageView.setImageBitmap(myBitmap);
-////                                    new DownloadImageTask(imageView).execute(urlImg);
-//                                    return v;
-//
-//                                }
-//                            });
-
-
                             mMap.addMarker(markerOptions);
+
                     }
 
                 }else if (status.compareTo("404")== 0)
