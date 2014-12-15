@@ -80,8 +80,8 @@
       <file leaf-file-name="MapsActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ucab/ecotoolbox/ecotoolbox/MapsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6208791" vertical-offset="1644" max-vertical-offset="9129">
-              <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.20054945" vertical-offset="1644" max-vertical-offset="9129">
+              <caret line="101" column="57" selection-start-line="101" selection-start-column="57" selection-end-line="101" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1777,7 +1777,11 @@
       <created>1418655344873</created>
       <updated>1418655344873</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Actualizar">
+      <created>1418655445429</created>
+      <updated>1418655445429</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2265,8 +2269,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ucab/ecotoolbox/ecotoolbox/MapsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6208791" vertical-offset="1644" max-vertical-offset="9129">
-          <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.20054945" vertical-offset="1644" max-vertical-offset="9129">
+          <caret line="101" column="57" selection-start-line="101" selection-start-column="57" selection-end-line="101" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
