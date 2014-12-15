@@ -12,6 +12,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -157,6 +158,24 @@ public class MapsActivity extends FragmentActivity{
         boolean networkIsEnabled;
         try {
             LocationManager locationManager = (LocationManager)getSystemService(getBaseContext().LOCATION_SERVICE);
+            LocationListener locationListener = new LocationListener(){
+                public void onLocationChanged(Location location){
+                    float lati = (float) location.getLatitude();
+                    float lon = (float) location.getLongitude();
+
+                    ObtenerPuntos op = new ObtenerPuntos(lati,lon,1);
+                    op.execute();
+                }
+                public void onStatusChanged(String provider, int status, Bundle extras){
+                }
+                public void onProviderEnabled(String provider){
+                }
+                public void onProviderDisabled(String provider){
+                }
+
+            };
+
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 35000, 5,locationListener);
                 // Create a criteria object to retrieve provider
                 Criteria criteria = new Criteria();
                 // Get the name of the best provider
@@ -181,23 +200,6 @@ public class MapsActivity extends FragmentActivity{
 
     }
 
-
-    public boolean isOnline() {
-        ConnectivityManager cm =
-                (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnected()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * This is where we can add markers or lines, add listeners or move the camera. In this case, we
-     * just add a marker near Africa.
-     * <p>
-     * This should only be called once and when we are sure that {@link #mMap} is not null.
-     */
     private void setUpMap() {
         MarkerOptions markerOptions;
 
@@ -274,37 +276,7 @@ public class MapsActivity extends FragmentActivity{
         mMap.animateCamera(yourLocation);
     }
 
-//    class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-//        ImageView bmImage;
-//
-//        public DownloadImageTask(ImageView bmImage) {
-//            this.bmImage = bmImage;
-//        }
-//
-//
-//        protected Bitmap doInBackground(String... urls) {
-//            String urldisplay = urls[0];
-//            Bitmap mIcon11 = null;
-//            try {
-//                InputStream in = new java.net.URL(urldisplay).openStream();
-//                mIcon11 = BitmapFactory.decodeStream(in);
-//            } catch (Exception e) {
-//                Log.e("Error", e.getMessage());
-//                e.printStackTrace();
-//            }
-//            return mIcon11;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Bitmap result) {
-//            super.onPostExecute(result);
-//            bmImage.setImageBitmap(result);
-//        }
-//    }
-
-
-
-    public class ObtenerDetalle  extends AsyncTask<String,Integer,JSONObject> {
+     public class ObtenerDetalle  extends AsyncTask<String,Integer,JSONObject> {
 
         private Integer id;
         public ObtenerDetalle(int id) {
