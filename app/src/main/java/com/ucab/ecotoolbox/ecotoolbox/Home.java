@@ -118,7 +118,14 @@ public class Home extends ActionBarActivity {
     }
 //  Click Calculadora
     public void onClickC(View v) {
-        setContentView(R.layout.fragment_calc);
+        //setContentView(R.layout.fragment_calc);
+        Calculadora calculadora = new Calculadora();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.container,calculadora);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 //  Click UV
     public void onClickUV(View v) {
