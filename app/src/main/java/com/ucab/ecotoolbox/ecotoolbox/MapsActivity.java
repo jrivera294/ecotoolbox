@@ -1,31 +1,33 @@
 package com.ucab.ecotoolbox.ecotoolbox;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,11 +61,12 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.security.Provider;
 
-public class MapsActivity extends FragmentActivity {
+public class MapsActivity extends FragmentActivity{
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private Bitmap myBitmap;
     private String foto;
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,13 +80,41 @@ public class MapsActivity extends FragmentActivity {
             dialog.show();
 
         }
-        else{ setUpMapIfNeeded();}
+
+        else{
+            setUpMapIfNeeded();
+        }
     }
 
 //    public void onSaveInstanceState(Bundle outState) {
 //        super.onSaveInstanceState(outState);
 //
 //    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.update, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_update:
+                Location myLocation = getLocation();
+                ObtenerPuntos op = new ObtenerPuntos((float)myLocation.getLatitude(),(float)myLocation.getLongitude(),5);
+                op.execute();
+                Toast.makeText(getApplicationContext(), "Actualizando",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -106,10 +137,12 @@ public class MapsActivity extends FragmentActivity {
      * method in {@link #onResume()} to guarantee that it will be called.
      */
 
+
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
             // Try to obtain the map from the SupportMapFragment.
+
             mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
                     .getMap();
             // Check if we were successful in obtaining the map.
@@ -125,6 +158,24 @@ public class MapsActivity extends FragmentActivity {
         boolean networkIsEnabled;
         try {
             LocationManager locationManager = (LocationManager)getSystemService(getBaseContext().LOCATION_SERVICE);
+            LocationListener locationListener = new LocationListener(){
+                public void onLocationChanged(Location location){
+                    float lati = (float) location.getLatitude();
+                    float lon = (float) location.getLongitude();
+
+                    ObtenerPuntos op = new ObtenerPuntos(lati,lon,1);
+                    op.execute();
+                }
+                public void onStatusChanged(String provider, int status, Bundle extras){
+                }
+                public void onProviderEnabled(String provider){
+                }
+                public void onProviderDisabled(String provider){
+                }
+
+            };
+
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 35000, 5,locationListener);
                 // Create a criteria object to retrieve provider
                 Criteria criteria = new Criteria();
                 // Get the name of the best provider
@@ -149,23 +200,6 @@ public class MapsActivity extends FragmentActivity {
 
     }
 
-
-    public boolean isOnline() {
-        ConnectivityManager cm =
-                (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnected()) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * This is where we can add markers or lines, add listeners or move the camera. In this case, we
-     * just add a marker near Africa.
-     * <p>
-     * This should only be called once and when we are sure that {@link #mMap} is not null.
-     */
     private void setUpMap() {
         MarkerOptions markerOptions;
 
@@ -242,37 +276,7 @@ public class MapsActivity extends FragmentActivity {
         mMap.animateCamera(yourLocation);
     }
 
-//    class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-//        ImageView bmImage;
-//
-//        public DownloadImageTask(ImageView bmImage) {
-//            this.bmImage = bmImage;
-//        }
-//
-//
-//        protected Bitmap doInBackground(String... urls) {
-//            String urldisplay = urls[0];
-//            Bitmap mIcon11 = null;
-//            try {
-//                InputStream in = new java.net.URL(urldisplay).openStream();
-//                mIcon11 = BitmapFactory.decodeStream(in);
-//            } catch (Exception e) {
-//                Log.e("Error", e.getMessage());
-//                e.printStackTrace();
-//            }
-//            return mIcon11;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Bitmap result) {
-//            super.onPostExecute(result);
-//            bmImage.setImageBitmap(result);
-//        }
-//    }
-
-
-
-    public class ObtenerDetalle  extends AsyncTask<String,Integer,JSONObject> {
+     public class ObtenerDetalle  extends AsyncTask<String,Integer,JSONObject> {
 
         private Integer id;
         public ObtenerDetalle(int id) {
