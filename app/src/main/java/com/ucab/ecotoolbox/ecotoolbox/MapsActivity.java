@@ -38,6 +38,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -160,11 +161,12 @@ public class MapsActivity extends FragmentActivity{
             LocationManager locationManager = (LocationManager)getSystemService(getBaseContext().LOCATION_SERVICE);
             LocationListener locationListener = new LocationListener(){
                 public void onLocationChanged(Location location){
-                    float lati = (float) location.getLatitude();
-                    float lon = (float) location.getLongitude();
+                    float lati = (float) mMap.getCameraPosition().target.latitude;
+                    float lon = (float) mMap.getCameraPosition().target.longitude;
 
-                    ObtenerPuntos op = new ObtenerPuntos(lati,lon,1);
+                    ObtenerPuntos op = new ObtenerPuntos(lati,lon,5);
                     op.execute();
+
                 }
                 public void onStatusChanged(String provider, int status, Bundle extras){
                 }
@@ -175,7 +177,7 @@ public class MapsActivity extends FragmentActivity{
 
             };
 
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 35000, 5,locationListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 35000, 3,locationListener);
                 // Create a criteria object to retrieve provider
                 Criteria criteria = new Criteria();
                 // Get the name of the best provider
@@ -233,6 +235,19 @@ public class MapsActivity extends FragmentActivity{
 
         ObtenerPuntos op = new ObtenerPuntos((float)latitude,(float)longitude,5);
         op.execute();
+
+        mMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+
+            @Override
+            public void onCameraChange(CameraPosition cameraPosition) {
+                float lati = (float) mMap.getCameraPosition().target.latitude;
+                float lon = (float) mMap.getCameraPosition().target.longitude;
+
+                ObtenerPuntos op = new ObtenerPuntos(lati,lon,5);
+                op.execute();
+            }
+        });
+
         // Zoom in the Google Map
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
