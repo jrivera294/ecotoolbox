@@ -159,25 +159,25 @@ public class MapsActivity extends FragmentActivity{
         boolean networkIsEnabled;
         try {
             LocationManager locationManager = (LocationManager)getSystemService(getBaseContext().LOCATION_SERVICE);
-            LocationListener locationListener = new LocationListener(){
-                public void onLocationChanged(Location location){
-                    float lati = (float) mMap.getCameraPosition().target.latitude;
-                    float lon = (float) mMap.getCameraPosition().target.longitude;
-
-                    ObtenerPuntos op = new ObtenerPuntos(lati,lon,5);
-                    op.execute();
-
-                }
-                public void onStatusChanged(String provider, int status, Bundle extras){
-                }
-                public void onProviderEnabled(String provider){
-                }
-                public void onProviderDisabled(String provider){
-                }
-
-            };
-
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 35000, 3,locationListener);
+//            LocationListener locationListener = new LocationListener(){
+//                public void onLocationChanged(Location location){
+//                    float lati = (float) mMap.getCameraPosition().target.latitude;
+//                    float lon = (float) mMap.getCameraPosition().target.longitude;
+//
+//                    ObtenerPuntos op = new ObtenerPuntos(lati,lon,5);
+//                    op.execute();
+//
+//                }
+//                public void onStatusChanged(String provider, int status, Bundle extras){
+//                }
+//                public void onProviderEnabled(String provider){
+//                }
+//                public void onProviderDisabled(String provider){
+//                }
+//
+//            };
+//
+//            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 35000, 3,locationListener);
                 // Create a criteria object to retrieve provider
                 Criteria criteria = new Criteria();
                 // Get the name of the best provider
