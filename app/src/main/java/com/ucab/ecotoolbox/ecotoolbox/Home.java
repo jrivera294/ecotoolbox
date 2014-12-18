@@ -1,12 +1,12 @@
 package com.ucab.ecotoolbox.ecotoolbox;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
-import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -119,13 +119,15 @@ public class Home extends ActionBarActivity {
 //  Click Calculadora
     public void onClickC(View v) {
         //setContentView(R.layout.fragment_calc);
-        Calculadora calculadora = new Calculadora();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.container,calculadora);
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.addToBackStack(null);
-        ft.commit();
+//        Calculadora calculadora = new Calculadora();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction ft = fragmentManager.beginTransaction();
+//        ft.replace(R.id.container,calculadora);
+//        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+//        ft.addToBackStack(null);
+//        ft.commit();
+        Intent intent1 = new Intent(this, CalculadoraActivity.class);
+        startActivity(intent1);
     }
 //  Click UV
     public void onClickUV(View v) {

@@ -2,60 +2,60 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
-        <dex dex="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-839f0f6bf936ff86a35238d1f08607a3e2a49eb8.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
-        <dex dex="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-50b4b6890693311fe7968383da21e6a9bd3457c9.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jose Gabriel Rivera\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jar="C:\Users\Jose Gabriel\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
-        <dex dex="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-c1fc03d7e7d169ab9c69365ef3594c2e3b16dc07.jar" />
+        <dex dex="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-5b85e7a9666576c2087b5ef253397b0b2c5add83.jar" />
     </item>
     <item
-        jar="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\libs\httpcore-4.3.3.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
-        <dex dex="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpcore-4.3.3-bb744932f4d4ce84af76916b10bd3c8515ac9019.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\libs\httpmime-4.3.6.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="66a39a5e37d5da40fdad6176fc24ef4316e74702">
-        <dex dex="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpmime-4.3.6-5796ca7627d6dd51ac711c9571bc72bcef575cee.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\libs\httpclient-4.3.6.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="f3cf3b25e14d3bca47773e95aa85ea8fefbf8e81">
-        <dex dex="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6-996f7f3f1dcd151a6a854a58f9ef1d1be7abd2b5.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
-        <dex dex="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-ea005d1a32a1c990a1768f1753a88ffb52a0920a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\classes.jar"
+        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da">
-        <dex dex="C:\Users\Jose Gabriel Rivera\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-2d7ab4aa33335c6301889736e4a7adfa67fc082b.jar" />
+        <dex dex="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-f4497613a2140573e9b185b59a5c08ec04efb6dc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\libs\httpmime-4.3.6.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="66a39a5e37d5da40fdad6176fc24ef4316e74702">
+        <dex dex="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpmime-4.3.6-f6ddddff27a2f1577abc1ef82072775d48c43118.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-497c94968c722c8c225078527ebb057cf6a0d3b4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-f2e53e1ff7e606501f01b816c02595d1381599c9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\libs\httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f3cf3b25e14d3bca47773e95aa85ea8fefbf8e81">
+        <dex dex="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6-fee7e826e63ec165383633d211bb638620064e49.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\libs\httpcore-4.3.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
+        <dex dex="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpcore-4.3.3-c8e7de38627117f618606697e8e1e3aed33ca3b8.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="C:\Users\Jose Gabriel\AndroidStudioProjects\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-1059d5306cac80d933c832e6ca50c5c2b9cdb1a6.jar" />
     </item>
 
 </items>
