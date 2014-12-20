@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 //prueba
-public class Rssfeed extends ActionBarActivity{
+public class Rssfeed extends FragmentActivity{
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,5 +37,6 @@ public class Rssfeed extends ActionBarActivity{
             return rootView;
         }
     }
+
 
 }
