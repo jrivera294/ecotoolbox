@@ -43,7 +43,7 @@ public class Activity_Noticias extends Activity {
         Bundle bundle = getIntent().getExtras();
 
         if(bundle.getString("in").compareTo("Internacional")==0){
-            URL = "http://noticias.masverdedigital.com/feed/";
+            URL = "http://feeds.feedburner.com/elblogverde?format=xml";
         }
         else{
             URL = "http://venezuelaverde.com/feed/";

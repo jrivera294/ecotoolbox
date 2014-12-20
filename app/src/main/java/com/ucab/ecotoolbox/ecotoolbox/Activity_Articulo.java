@@ -10,6 +10,7 @@ package com.ucab.ecotoolbox.ecotoolbox;
 
         import android.app.Activity;
         import android.os.Bundle;
+        import android.webkit.WebSettings;
         import android.webkit.WebView;
 
 public class Activity_Articulo extends Activity {
@@ -33,6 +34,8 @@ public class Activity_Articulo extends Activity {
         WebView webview = (WebView) findViewById(R.id.articulo_Webview);
         webview.loadDataWithBaseURL(null, "<!DOCTYPE HTML>"
                 + populateHTML(R.raw.htmlnoticia), "text/html", "UTF-8", null);
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.getSettings().setPluginState(WebSettings.PluginState.ON);
     }
 
     private String populateHTML(int resourceID) {
