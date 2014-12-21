@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:gravity="left"
+            android:text="Selecciona la categoría que desees."
+            android:textSize="20sp"
+            android:id="@+id/textView1"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/tuto1"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:gravity="left"
+            android:text="Haz click en los titulares del FEED para conocer más de la noticia."
+            android:textSize="20sp"
+            android:id="@+id/textView2"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/tuto1"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:gravity="left"
+            android:text="Disfruta del contenido ecológico."
+            android:textSize="20sp"
+            android:id="@+id/textView3"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/tuto1"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+</ScrollView>

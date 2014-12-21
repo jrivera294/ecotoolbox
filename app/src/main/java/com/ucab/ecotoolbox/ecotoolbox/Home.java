@@ -25,28 +25,30 @@ public class Home extends ActionBarActivity {
         Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isfirstrun",true);
 //
         if(isFirstRun){
-            setContentView(R.layout.intro_tutorial);
-            VideoView video = (VideoView) findViewById(R.id.videoView);
-            video.setVideoPath("android.resource://"+getPackageName()+"/"+ R.drawable.example);
-            video.setMediaController(new MediaController(this));
-            video.requestFocus();
-            video.start();
-
-            if (savedInstanceState == null) {
-                getSupportFragmentManager().beginTransaction()
-                        .add(R.id.fragment_tuto, new PlaceholderFragmentV())
-                        .commit();
-            }
+//            setContentView(R.layout.intro_tutorial);
+//            VideoView video = (VideoView) findViewById(R.id.videoView);
+//            video.setVideoPath("android.resource://"+getPackageName()+"/"+ R.drawable.example);
+//            video.setMediaController(new MediaController(this));
+//            video.requestFocus();
+//            video.start();
+//
+//            if (savedInstanceState == null) {
+//                getSupportFragmentManager().beginTransaction()
+//                        .add(R.id.fragment_tuto, new PlaceholderFragmentV())
+//                        .commit();
+//            }
+            Intent mainIntent = new Intent(this, Tutorial_Activity.class);
+            startActivity(mainIntent);
             getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isfirstrun",false).commit();
 
-            video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                public void onCompletion(MediaPlayer mp) {
-                    setContentView(R.layout.activity_home);
-                    getSupportFragmentManager().beginTransaction()
-                            .add(R.id.container, new PlaceholderFragment())
-                            .commit();
-                }
-            });
+//            video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                public void onCompletion(MediaPlayer mp) {
+//                    setContentView(R.layout.activity_home);
+//                    getSupportFragmentManager().beginTransaction()
+//                            .add(R.id.container, new PlaceholderFragment())
+//                            .commit();
+//                }
+//            });
 
         }
         else {
