@@ -42,11 +42,28 @@ public class Activity_Noticias extends Activity {
         setContentView(R.layout.activity_noticias);
         Bundle bundle = getIntent().getExtras();
 
-        if(bundle.getString("in").compareTo("Internacional")==0){
-            URL = "http://feeds.feedburner.com/elblogverde?format=xml";
+
+        if(bundle.getString("in").compareTo("i0")==0){
+            URL = "http://www.mariano-bueno.com/feed/";
         }
         else{
-            URL = "http://venezuelaverde.com/feed/";
+            if(bundle.getString("in").compareTo("i1")==0){
+                URL = "http://www.boletinecologico.org/feed/";
+            }
+            else {
+                if (bundle.getString("in").compareTo("i2") == 0) {
+                    URL = "http://noticias.masverdedigital.com/feed/";
+                }
+                else{
+                    if(bundle.getString("in").compareTo("i3")==0){
+                        URL = "http://feeds.feedburner.com/elblogverde?format=xml";
+                    }
+                    else{
+                        URL = "http://venezuelaverde.com/feed/";
+                    }
+                }
+            }
+
         }
         rellenarNoticias();
 
