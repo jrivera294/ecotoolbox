@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:gravity="center"
-            android:text="EcoMaps"
+            android:text="Presiona el botón de RSS Feed."
             android:textSize="20sp"
             android:id="@+id/textView1"
             android:layout_height="wrap_content" />
@@ -21,14 +21,14 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/map"
+            android:src="@drawable/rss"
             android:layout_gravity="center"
             />
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:gravity="left"
-            android:text="Presiona unos segundos sobre el mapa para agregar eventos."
+            android:text="Selecciona la fuente de noticias de tu preferencia."
             android:textSize="20sp"
             android:id="@+id/textView2"
             android:layout_height="wrap_content" />
@@ -41,9 +41,9 @@
             />
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:gravity="left"
-            android:text="Se abrirá una nueva ventana, en donde registrarás el evento."
+            android:text="Navega a través de los titulares."
             android:textSize="20sp"
             android:id="@+id/textView3"
             android:layout_height="wrap_content" />
@@ -52,44 +52,14 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:src="@drawable/tuto1"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center"/>
 
         <TextView
-            android:layout_width="fill_parent"
-            android:gravity="left"
-            android:text="Presiona sobre el símbolo de la cámara para tomar una foto."
-            android:textSize="20sp"
-            android:id="@+id/textView5"
-            android:layout_height="wrap_content" />
-
-        <ImageView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
-            android:layout_gravity="center"
-            />
-        <TextView
-            android:layout_width="fill_parent"
             android:gravity="left"
-            android:text="Completa el resto de los campos y luego selecciona 'Enviar'."
+            android:text="Disfruta del contenido ecológico."
             android:textSize="20sp"
-            android:id="@+id/textView6"
-            android:layout_height="wrap_content" />
-
-        <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
-            android:layout_gravity="center"
-            />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:gravity="left"
-            android:text="Presiona los íconos y descubre su contenido."
-            android:textSize="20sp"
-            android:id="@+id/textView7"
+            android:id="@+id/textView4"
             android:layout_height="wrap_content" />
 
         <ImageView

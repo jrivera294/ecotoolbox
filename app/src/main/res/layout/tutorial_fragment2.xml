@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:gravity="center"
-            android:text="RSS FEED"
+            android:text="Presiona el botón de RSS Feed."
             android:textSize="20sp"
             android:id="@+id/textView1"
             android:layout_height="wrap_content" />
@@ -26,9 +26,9 @@
             />
 
         <TextView
-            android:layout_width="fill_parent"
-            android:gravity="center"
-            android:text="Selecciona alguna categoría y fuente de noticias."
+            android:layout_width="wrap_content"
+            android:gravity="left"
+            android:text="Selecciona la fuente de noticias de tu preferencia."
             android:textSize="20sp"
             android:id="@+id/textView2"
             android:layout_height="wrap_content" />
@@ -41,24 +41,9 @@
             />
 
         <TextView
-            android:layout_width="fill_parent"
-            android:gravity="center"
-            android:text="Navega a través de los titulares."
-            android:textSize="20sp"
-            android:id="@+id/textView4"
-            android:layout_height="wrap_content" />
-
-        <ImageView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
-            android:layout_gravity="center"
-            />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:gravity="center"
-            android:text="Disfruta del contenido ecológico."
+            android:gravity="left"
+            android:text="Navega a través de los titulares."
             android:textSize="20sp"
             android:id="@+id/textView3"
             android:layout_height="wrap_content" />
@@ -67,7 +52,20 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:src="@drawable/tuto1"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:gravity="left"
+            android:text="Disfruta del contenido ecológico."
+            android:textSize="20sp"
+            android:id="@+id/textView4"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/tuto1"
+            android:layout_gravity="center"/>
     </LinearLayout>
 </ScrollView>
