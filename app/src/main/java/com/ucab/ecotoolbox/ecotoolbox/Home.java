@@ -108,13 +108,15 @@ public class Home extends ActionBarActivity {
 
 //   Click RSS Feed
      public void onClickF(View v) {
-         Rssfeed.PlaceholderFragmentRss f4 = new Rssfeed.PlaceholderFragmentRss();
-         FragmentManager fragmentManager = getSupportFragmentManager();
-         FragmentTransaction ft = fragmentManager.beginTransaction();
-         ft.replace(R.id.container, f4); // f2_container is your FrameLayout container
-         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-         ft.addToBackStack(null);
-         ft.commit();
+         Intent intent1 = new Intent(this, Principal.class);
+         startActivity(intent1);
+//         Rssfeed.PlaceholderFragmentRss f4 = new Rssfeed.PlaceholderFragmentRss();
+//         FragmentManager fragmentManager = getSupportFragmentManager();
+//         FragmentTransaction ft = fragmentManager.beginTransaction();
+//         ft.replace(R.id.container, f4); // f2_container is your FrameLayout container
+//         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+//         ft.addToBackStack(null);
+//         ft.commit();
     }
 //  Click Calculadora
     public void onClickC(View v) {
