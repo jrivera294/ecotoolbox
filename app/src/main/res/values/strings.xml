@@ -9,4 +9,14 @@
     <string name="uv">uv</string>
     <string name="mapa">map</string>
     <string name="nombreInfo">New Text</string>
+    <string-array name="combustibles">
+        <item>Gasolina</item>
+        <item>Diesel</item>
+        <item>Hibrido</item>
+    </string-array>
+    <string-array name="tamanio">
+        <item>Pequeño</item>
+        <item>Mediano</item>
+        <item>Grande</item>
+    </string-array>
 </resources>
