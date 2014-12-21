@@ -12,20 +12,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:gravity="center"
-            android:text="¡Bienvenido a EcoToolBox!"
+            android:text="¡Estás listo para utilizar EcoToolBox!"
             android:textSize="30sp"
             android:id="@+id/textView1"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"/>
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:gravity="center"
-            android:text="Sigue los pasos para aprender a usar la aplicación."
-            android:textSize="20sp"
-            android:id="@+id/textView2"
+        <Button
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"/>
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Ok"
+            android:onClick="onClickHome"/>
+
 
     </LinearLayout>
 </ScrollView>

@@ -11,8 +11,8 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:gravity="left"
-            android:text="Selecciona la categoría que desees."
+            android:gravity="center"
+            android:text="RSS FEED"
             android:textSize="20sp"
             android:id="@+id/textView1"
             android:layout_height="wrap_content" />
@@ -21,14 +21,14 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
+            android:src="@drawable/rss"
             android:layout_gravity="center"
             />
 
         <TextView
             android:layout_width="fill_parent"
-            android:gravity="left"
-            android:text="Haz click en los titulares del FEED para conocer más de la noticia."
+            android:gravity="center"
+            android:text="Selecciona alguna categoría y fuente de noticias."
             android:textSize="20sp"
             android:id="@+id/textView2"
             android:layout_height="wrap_content" />
@@ -42,7 +42,22 @@
 
         <TextView
             android:layout_width="fill_parent"
-            android:gravity="left"
+            android:gravity="center"
+            android:text="Navega a través de los titulares."
+            android:textSize="20sp"
+            android:id="@+id/textView4"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/tuto1"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:gravity="center"
             android:text="Disfruta del contenido ecológico."
             android:textSize="20sp"
             android:id="@+id/textView3"

@@ -1,10 +1,12 @@
 package com.ucab.ecotoolbox.ecotoolbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 
 /**
  * Created by Vicky 20/12/2014.
@@ -16,7 +18,7 @@ public class Tutorial_Activity extends ActionBarActivity implements ActionBar.Ta
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calc_fragment_pager);
+        setContentView(R.layout.tutorial_pager);
         viewpager = (ViewPager) findViewById(R.id.pager);
         ft = new Tutorial_Adapter(getSupportFragmentManager());
         actionbar = getSupportActionBar();
@@ -27,6 +29,7 @@ public class Tutorial_Activity extends ActionBarActivity implements ActionBar.Ta
         actionbar.addTab(actionbar.newTab().setText("3").setTabListener(this));
         actionbar.addTab(actionbar.newTab().setText("4").setTabListener(this));
         actionbar.addTab(actionbar.newTab().setText("5").setTabListener(this));
+        actionbar.addTab(actionbar.newTab().setText("6").setTabListener(this));
         viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int arg0) {
@@ -41,6 +44,11 @@ public class Tutorial_Activity extends ActionBarActivity implements ActionBar.Ta
                 // TODO Auto-generated method stub
             }
         });
+    }
+
+    public void onClickHome(View v){
+        Intent intent1 = new Intent(this, Home.class);
+        startActivity(intent1);
     }
 
     @Override
