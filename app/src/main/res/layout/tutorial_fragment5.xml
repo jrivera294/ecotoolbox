@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:gravity="left"
-            android:text="Visualizarás el mapa, presiona por algunos segundos la pantalla para agregar un nuevo evento."
+            android:text="Visualizarás el mapa."
             android:textSize="20sp"
             android:id="@+id/textView2"
             android:layout_height="wrap_content" />
@@ -40,10 +40,26 @@
             android:layout_gravity="center"
             />
 
+
         <TextView
             android:layout_width="wrap_content"
             android:gravity="left"
-            android:text="Aparecerá una nueva ventana, presiona el ícono de la cámara para tomar una foto de la actividad.."
+            android:text="Si presionas algún evento, podrás leer la descripción de cada uno de ellos."
+            android:textSize="20sp"
+            android:id="@+id/textView7"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/icon_tuto"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:gravity="left"
+            android:text="Para agregar una tarea, presiona por algunos segundos el mapa. Se abrirá una nueva ventana, presiona el ícono de la cámara para tomar una foto de la actividad."
             android:textSize="20sp"
             android:id="@+id/textView3"
             android:layout_height="wrap_content" />
@@ -71,6 +87,8 @@
             android:textStyle="bold"
             android:id="@+id/textView5"
             android:layout_height="wrap_content" />
+
+
 
     </LinearLayout>
 </ScrollView>
