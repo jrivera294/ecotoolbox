@@ -36,7 +36,7 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
+            android:src="@drawable/feed_tuto"
             android:layout_gravity="center"
             />
 
@@ -51,7 +51,7 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
+            android:src="@drawable/titulares"
             android:layout_gravity="center"/>
 
         <TextView
@@ -65,7 +65,7 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
+            android:src="@drawable/noticia"
             android:layout_gravity="center"/>
     </LinearLayout>
 </ScrollView>
