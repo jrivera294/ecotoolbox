@@ -52,14 +52,14 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/icon_tuto"
+            android:src="@drawable/icon_tuto1"
             android:layout_gravity="center"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:gravity="left"
-            android:text="Para agregar una tarea, presiona por algunos segundos el mapa. Se abrirá una nueva ventana, presiona el ícono de la cámara para tomar una foto de la actividad."
+            android:text="Para agregar una tarea, presiona por algunos segundos el mapa. Se abrirá una nueva ventana, presiona el ícono de la cámara para tomar una foto."
             android:textSize="20sp"
             android:id="@+id/textView3"
             android:layout_height="wrap_content" />
