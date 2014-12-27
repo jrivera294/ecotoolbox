@@ -1,9 +1,7 @@
 package com.ucab.ecotoolbox.ecotoolbox;
 
-import java.util.ArrayList;
-
 /**
- * Created by Toshiba PC on 12/21/2014.
+ * Created by Toshiba PC on 12/21/2014. Hola
  */
 public class ChildItem {
 
