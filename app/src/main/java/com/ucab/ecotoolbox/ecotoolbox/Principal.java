@@ -77,10 +77,10 @@ public class Principal extends ExpandableListActivity {
                 child.setName("" + i);
                 child.setText1("Mariano Bueno");
                 parent.getChildren().add(child);
-                final ChildItem child1 = new ChildItem();
-                child1.setName("" + i);
-                child1.setText1("Boletin Ecologico");
-                parent.getChildren().add(child1);
+//                final ChildItem child1 = new ChildItem();
+//                child1.setName("" + i);
+//                child1.setText1("Boletin Ecologico");
+//                parent.getChildren().add(child1);
                 final ChildItem child2 = new ChildItem();
                 child2.setName("" + i);
                 child2.setText1("Noticias Mas Verde Digital");
@@ -190,15 +190,15 @@ public class Principal extends ExpandableListActivity {
                                 i.putExtra("in", "i0");
                                 startActivity(i);
                                 break;
+//                            case 1:
+//                                i.putExtra("in", "i1");
+//                                startActivity(i);
+//                                break;
                             case 1:
-                                i.putExtra("in", "i1");
-                                startActivity(i);
-                                break;
-                            case 2:
                                 i.putExtra("in", "i2");
                                 startActivity(i);
                                 break;
-                            case 3:
+                            case 2:
                                 i.putExtra("in", "i3");
                                 startActivity(i);
                                 break;
