@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by Jose Gabriel on 18/12/2014.
  */
@@ -99,7 +101,9 @@ public class TotalFragment extends Fragment {
 
         TextView tvEmision = (TextView)v.findViewById(R.id.tvEmisionTotal);
        Double valorTotal = valorHogar + valorTransporte;
-        tvEmision.setText("Su emision es de: "+valorTotal.toString()+"Kg de C02");
+        DecimalFormat format = new DecimalFormat("0.000");
+
+        tvEmision.setText("Su emision es de: "+format.format(valorTotal).toString()+"Kg de C02");
         return v;
     }
 }
