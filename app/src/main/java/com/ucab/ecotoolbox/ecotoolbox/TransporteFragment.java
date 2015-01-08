@@ -24,13 +24,13 @@ public class TransporteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         View view = inflater.inflate(R.layout.calc_fragment_transporte, container,false);
-        bc = (Button)view.findViewById(R.id.bCalcular);
-        bc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calcularTransporte(view);
-            }
-        });
+//       bc = (Button)view.findViewById(R.id.bCalcular);
+//        bc.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                calcularTransporte(view);
+//            }
+//        });
         return view;
     }
 
