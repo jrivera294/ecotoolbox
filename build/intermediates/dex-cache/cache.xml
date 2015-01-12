@@ -2,11 +2,67 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\user\Desktop\Ing Informatica\Informatica 7mo y 8vo\Metodologia De Software\ecotoolbox\app\libs\volley.jar"
+        jar="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-36a8c253fd4b1d6954772d625ef65acb761dd5f9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-79d16aa6140b7144f19fec8eb36d08ed3f50dc58.jar" />
+    </item>
+    <item
+        jar="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da">
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-8efbae4b714fa3a949ccd91509715ee3ac8678c5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\libs\httpmime-4.3.6.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="66a39a5e37d5da40fdad6176fc24ef4316e74702">
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpmime-4.3.6-86628f328c38693f32d6d88b9d13a73bbdb1be52.jar" />
+    </item>
+    <item
+        jar="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\libs\volley.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
-        <dex dex="C:\Users\user\Desktop\Ing Informatica\Informatica 7mo y 8vo\Metodologia De Software\ecotoolbox\app\build\intermediates\pre-dexed\debug\volley-f90fde688fa674a0bbbf5186033de2ac4fe628a5.jar" />
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\volley-375ab8700f42d40ba2cbe81c6ac6fc87b65cb885.jar" />
+    </item>
+    <item
+        jar="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\classes-41af3e8cb110b8f295811bf1fd18b17453119c1d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\libs\httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f3cf3b25e14d3bca47773e95aa85ea8fefbf8e81">
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6-34c0f8dc426546b39a17ea167e26ea59d8592286.jar" />
+    </item>
+    <item
+        jar="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\libs\httpcore-4.3.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f91b7a4aadc5cf486df6e4634748d7dd7a73f06d">
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\httpcore-4.3.3-1e111dce1b1b5db68b2cefacf77914cd67cd0ef0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Toshiba PC\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="C:\Users\Toshiba PC\Documents\GitHub\ecotoolbox\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-3957055056e693516a5d79a1b915bb61d7d06da1.jar" />
     </item>
 
 </items>
