@@ -43,7 +43,7 @@ public class CalculadoraActivity extends ActionBarActivity implements ActionBar.
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
+        viewpager.setCurrentItem(tab.getPosition());
     }
 
     @Override
