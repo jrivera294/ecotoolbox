@@ -21,15 +21,16 @@ public class Principal extends ExpandableListActivity {
     private int ParentClickStatus=-1;
     private int ChildClickStatus=-1;
     private ArrayList<ParentItem> parents;
+    private int flag = -1;
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
-		super.onCreate(savedInstanceState);
-		initilize();
-	}
+        super.onCreate(savedInstanceState);
+        initilize();
+    }
 
-	private void initilize() {
+    private void initilize() {
 
         Resources res = this.getResources();
         Drawable devider = res.getDrawable(R.drawable.line);
@@ -180,32 +181,36 @@ public class Principal extends ExpandableListActivity {
                 switch (groupPosition){
                     case 0:
 //                        if (childPosition==0){
-                            i.putExtra("in", "Nacional");
-                            startActivity(i);
+//                       if(flag ==0 && ParentClickStatus==-1){
+                           i.putExtra("in", "Nacional");
+                           startActivity(i);
 //                        }
                         break;
+
                     case 1:
-                        switch (childPosition){
-                            case 0:
-                                i.putExtra("in", "i0");
-                                startActivity(i);
-                                break;
+                        if(flag==0) {
+                            switch (childPosition) {
+                                case 0:
+                                    i.putExtra("in", "i0");
+                                    startActivity(i);
+                                    break;
 //                            case 1:
 //                                i.putExtra("in", "i1");
 //                                startActivity(i);
 //                                break;
-                            case 1:
-                                i.putExtra("in", "i2");
-                                startActivity(i);
-                                break;
-                            case 2:
-                                i.putExtra("in", "i3");
-                                startActivity(i);
-                                break;
-                            default:
-                                break;
+                                case 1:
+                                    i.putExtra("in", "i2");
+                                    startActivity(i);
+                                    break;
+                                case 2:
+                                    i.putExtra("in", "i3");
+                                    startActivity(i);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
                         }
-                        break;
                     default:
                         break;
                 }
@@ -241,7 +246,8 @@ public class Principal extends ExpandableListActivity {
         @Override
         public long getGroupId(int groupPosition)
         {
-//            Log.i("Parent", groupPosition+"=  getGroupId "+ParentClickStatus);
+            Log.i("Parent", groupPosition+"=  getGroupId "+ParentClickStatus);
+            Log.i("Flag",flag+"");
             ParentClickStatus=groupPosition;
             if(ParentClickStatus==0)
                 ParentClickStatus=-1;
@@ -265,6 +271,7 @@ public class Principal extends ExpandableListActivity {
         @Override
         public boolean isChildSelectable(int groupPosition, int childPosition)
         {
+            flag = 0;
             return true;
         }
 
