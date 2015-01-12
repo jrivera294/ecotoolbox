@@ -42,7 +42,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81552d6e-c6bd-41fc-9c9e-5c03f7022234" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/calc_fragment_total.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/calc_fragment_total.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f6135081-770e-48f6-98a2-5da8810ab8ec" name="Rejected commit: Default" comment="." />
@@ -1638,7 +1637,11 @@
       <created>1421098911283</created>
       <updated>1421098911283</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary=".">
+      <created>1421100556308</created>
+      <updated>1421100556308</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
