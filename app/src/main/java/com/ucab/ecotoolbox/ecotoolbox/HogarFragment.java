@@ -11,6 +11,7 @@ public class HogarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
+        //setRetainInstance(true);
         return inflater.inflate(R.layout.calc_fragment_hogar, container,false);
     }
 }

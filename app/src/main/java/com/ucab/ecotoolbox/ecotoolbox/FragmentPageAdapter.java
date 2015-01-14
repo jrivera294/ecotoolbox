@@ -5,6 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class FragmentPageAdapter extends FragmentPagerAdapter {
+    HogarFragment hf=null;
+    TransporteFragment traf=null;
+    TotalFragment totf=null;
     public FragmentPageAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -13,11 +16,17 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
         // TODO Auto-generated method stub
         switch (arg0) {
             case 0:
-                return new HogarFragment();
+                    if (hf == null)
+                        hf = new HogarFragment();
+                return hf;
             case 1:
-                return new TransporteFragment();
+                if (traf == null)
+                    traf = new TransporteFragment();
+                return traf;
             case 2:
-                return new TotalFragment();
+                if (totf == null)
+                    totf = new TotalFragment();
+                return totf;
             default:
                 break;
         }

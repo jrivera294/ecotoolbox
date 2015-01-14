@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -20,16 +21,22 @@ public class TotalFragment extends Fragment {
                              Bundle savedInstanceState) {
 //
         View v = inflater.inflate(R.layout.calc_fragment_total, container,false);
-
-
-
+        //setRetainInstance(true);
         // CALCULAR TAB TRANSPORTE
+//       String value =this.getActivity().getIntent().getStringExtra("key");
+//        Toast.makeText(this.getActivity().getApplicationContext(), "el valor del carro es INTENT : " + value,
+//                Toast.LENGTH_LONG).show();
 
-          Double[][]  emisionCarro = {{0.15991,0.20018,0.28944},{0.14519,0.17438,0.22867},{0.11156,0.11901,0.19755}};
-          Double[] emisionMoto = {0.08499,0.10316,0.13724};
-          Double emisionTaxi = 0.17623;
-          Double emisionBus = 0.10067;
-          Double emisionMetro = 0.035645;
+        return v;
+    }
+
+    public void calcular () {
+
+        Double[][]  emisionCarro = {{0.15991,0.20018,0.28944},{0.14519,0.17438,0.22867},{0.11156,0.11901,0.19755}};
+        Double[] emisionMoto = {0.08499,0.10316,0.13724};
+        Double emisionTaxi = 0.17623;
+        Double emisionBus = 0.10067;
+        Double emisionMetro = 0.035645;
 
         EditText etCarro = (EditText)this.getActivity().findViewById(R.id.etCarro);
         Spinner spCombustible = (Spinner)this.getActivity().findViewById(R.id.spCombustible);
@@ -83,7 +90,7 @@ public class TotalFragment extends Fragment {
                 valorTaxi * emisionTaxi +
                 valorMetro * emisionMetro;
 
-       // tvResultado.setText(res.toString());
+        // tvResultado.setText(res.toString());
 
         // TODO Auto-generated method stub
 
@@ -99,11 +106,12 @@ public class TotalFragment extends Fragment {
         else
             valorHogar = Double.parseDouble(StringHogar) * emisionHogar;
 
-        TextView tvEmision = (TextView)v.findViewById(R.id.tvEmisionTotal);
-       Double valorTotal = valorHogar + valorTransporte;
+        TextView tvEmision = (TextView)this.getView().findViewById(R.id.tvEmisionTotal);
+        Double valorTotal = valorHogar + valorTransporte;
         DecimalFormat format = new DecimalFormat("0.000");
 
         tvEmision.setText("Su emision es de: "+format.format(valorTotal).toString()+"Kg de C02");
-        return v;
+
     }
+
 }

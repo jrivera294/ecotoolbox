@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TransporteFragment extends Fragment {
 
@@ -24,6 +25,8 @@ public class TransporteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         View view = inflater.inflate(R.layout.calc_fragment_transporte, container,false);
+        this.getActivity().getIntent().putExtra("key","value");
+        //setRetainInstance(true);
 //       bc = (Button)view.findViewById(R.id.bCalcular);
 //        bc.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -31,10 +34,34 @@ public class TransporteFragment extends Fragment {
 //                calcularTransporte(view);
 //            }
 //        });
+//        calcularTransporte(view);
         return view;
     }
-
-    private void calcularTransporte(View v) {
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        EditText etCarro = (EditText)this.getView().findViewById(R.id.etCarro);
+//        String StringCarro = etCarro.getText().toString();
+//        Toast.makeText(this.getActivity().getApplicationContext(), "es onResume y el valor del carro es: "+StringCarro,
+//                Toast.LENGTH_LONG).show();
+//    }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        EditText etCarro = (EditText)this.getView().findViewById(R.id.etCarro);
+//        String StringCarro = etCarro.getText().toString();
+//        Toast.makeText(this.getActivity().getApplicationContext(), "es onPAUSE y el valor del carro es: "+StringCarro,
+//                Toast.LENGTH_LONG).show();
+//    }
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        EditText etCarro = (EditText)this.getView().findViewById(R.id.etCarro);
+//        String StringCarro = etCarro.getText().toString();
+//        Toast.makeText(this.getActivity().getApplicationContext(), "es onSTOP y el valor del carro es: "+StringCarro,
+//                Toast.LENGTH_LONG).show();
+//    }
+    public Double calcularTransporte() {
         EditText etCarro = (EditText)this.getView().findViewById(R.id.etCarro);
         Spinner spCombustible = (Spinner)this.getView().findViewById(R.id.spCombustible);
         Spinner spTamCarro= (Spinner)this.getView().findViewById(R.id.spTamCarro);
@@ -87,7 +114,13 @@ public class TransporteFragment extends Fragment {
                      valorTaxi * emisionTaxi +
                      valorMetro * emisionMetro;
 
-        tvResultado.setText(res.toString());
+
+        return res;
+//        Toast.makeText(getActivity().getApplicationContext(), "EPALEEE: "+res.toString(),
+//                Toast.LENGTH_LONG).show();
+
+        //   this.getParentFragment().getId()
+       // tvResultado.setText(res.toString());
        // etBus.setText("1");
        // etCarro.setText("2");
     }
