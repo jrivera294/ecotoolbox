@@ -106,4 +106,6 @@ public class TotalFragment extends Fragment {
         tvEmision.setText("Su emision es de: "+format.format(valorTotal).toString()+"Kg de C02");
         return v;
     }
+
+
 }
