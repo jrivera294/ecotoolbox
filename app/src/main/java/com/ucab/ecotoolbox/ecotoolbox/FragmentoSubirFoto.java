@@ -359,8 +359,7 @@ public class FragmentoSubirFoto extends Fragment{
                         postAPI.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
                         HttpResponse respuestaAPI = clienteAPI.execute(postAPI);
-                        Toast.makeText(getActivity().getApplicationContext(), "Su punto se ha creado exitosamente",
-                        Toast.LENGTH_LONG).show();
+
 
                     } catch (IOException e) {
                         e.printStackTrace();
