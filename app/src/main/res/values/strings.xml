@@ -20,4 +20,11 @@
         <item>Mediano</item>
         <item>Grande</item>
     </string-array>
+    <string-array name="tipoCalculo">
+        <item>Diario</item>
+        <item>Semanal</item>
+        <item>Mensual</item>
+        <item>Anual</item>
+    </string-array>
+
 </resources>

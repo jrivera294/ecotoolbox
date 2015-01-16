@@ -1,15 +1,10 @@
 package com.ucab.ecotoolbox.ecotoolbox;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.widget.EditText;
-import android.widget.TabHost;
-import android.widget.Toast;
 
 /**
  * Created by Jose Gabriel on 17/12/2014.
@@ -55,7 +50,7 @@ public class CalculadoraActivity extends ActionBarActivity implements ActionBar.
         if (tab.getPosition()==2) {
             FragmentPageAdapter adapter = (FragmentPageAdapter) viewpager.getAdapter();
             TotalFragment fragment = (TotalFragment)adapter.getItem(2);
-            fragment.calcular();
+            fragment.calcular(0);
         }
         viewpager.setCurrentItem(tab.getPosition());
 
