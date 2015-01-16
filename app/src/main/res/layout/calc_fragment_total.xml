@@ -22,10 +22,10 @@
         <Spinner
             android:layout_marginTop="15px"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/spTipoCalculo"
             android:entries="@array/tipoCalculo"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_vertical" />
     </LinearLayout>
     <View
         android:layout_width="fill_parent"
