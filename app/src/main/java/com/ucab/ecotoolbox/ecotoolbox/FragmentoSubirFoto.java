@@ -390,15 +390,18 @@ public class FragmentoSubirFoto extends Fragment{
             protected void onPostExecute(JSONObject jsonArray) {
                 super.onPostExecute(jsonArray);
                 try {
-                    String urlImagen = jsonArray.getString("msg");
-                   /*    jArray.getString(1);*/
-
-
-                    //fragmento.dataFromAsyncTask = urlImagen;
-                    // Convert String to json object*/
-
-                    EditText etDesc = (EditText) getActivity().findViewById(R.id.etDescripcion);
-                    etDesc.setText(urlImagen);
+//                    String urlImagen = jsonArray.getString("msg");
+//                   /*    jArray.getString(1);*/
+//
+//
+//                    //fragmento.dataFromAsyncTask = urlImagen;
+//                    // Convert String to json object*/
+//
+//                    EditText etDesc = (EditText) getActivity().findViewById(R.id.etDescripcion);
+//                    etDesc.setText(urlImagen);
+                    Toast.makeText(getActivity().getApplicationContext(), "Su punto se ha creado exitosamente",
+                            Toast.LENGTH_LONG).show();
+                    getActivity().getSupportFragmentManager().popBackStack();
 
 
                 }

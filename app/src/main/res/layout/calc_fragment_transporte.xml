@@ -47,23 +47,23 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Carro:  "
             android:id="@+id/tvCarro"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
         <EditText
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/etCarro"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="38dp"
             android:maxLines="1"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="KM"
@@ -82,13 +82,13 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Combustible: "
             android:id="@+id/tvCombustible"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
         <Spinner
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spCombustible"
             android:layout_marginLeft="20dp"
@@ -111,13 +111,13 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Tamaño: "
             android:id="@+id/tvTamanioCarro"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="50dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
         <Spinner
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spTamCarro"
             android:layout_marginLeft="20dp"
@@ -140,23 +140,23 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Motos: "
             android:id="@+id/tvMotos"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
         <EditText
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/etMotos"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="34dp"
             android:maxLines="1"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="KM"
@@ -175,13 +175,13 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Tamaño: "
             android:id="@+id/tvTamanioMoto"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="50dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
         <Spinner
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spTamMoto"
             android:layout_marginLeft="20dp"
@@ -206,13 +206,13 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Taxi: "
             android:id="@+id/tvTaxi"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="20dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
         <EditText
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
@@ -222,7 +222,7 @@
             android:maxLines="1"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="KM"
@@ -241,13 +241,13 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Bus: "
             android:id="@+id/tvBus"
-            android:layout_marginLeft="38dp"
+            android:layout_marginLeft="18dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
         <EditText
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
@@ -257,7 +257,7 @@
             android:maxLines="1"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="KM"
@@ -276,13 +276,13 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Metro: "
             android:id="@+id/tvMetro"
-            android:layout_marginLeft="38dp"
+            android:layout_marginLeft="18dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp" />
 
         <EditText
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
@@ -292,7 +292,7 @@
             android:maxLines="1"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="KM"
