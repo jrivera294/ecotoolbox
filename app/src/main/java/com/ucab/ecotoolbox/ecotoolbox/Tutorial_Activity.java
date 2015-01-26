@@ -29,7 +29,6 @@ public class Tutorial_Activity extends ActionBarActivity implements ActionBar.Ta
         actionbar.addTab(actionbar.newTab().setText("3").setTabListener(this));
         actionbar.addTab(actionbar.newTab().setText("4").setTabListener(this));
         actionbar.addTab(actionbar.newTab().setText("5").setTabListener(this));
-        actionbar.addTab(actionbar.newTab().setText("6").setTabListener(this));
         viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int arg0) {

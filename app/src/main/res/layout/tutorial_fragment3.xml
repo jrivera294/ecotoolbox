@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:gravity="center"
-            android:text="Presiona el botón de RSS Feed."
+            android:text="Presiona el botón de Huella de Carbono."
             android:textSize="20sp"
             android:id="@+id/textView1"
             android:layout_height="wrap_content" />
@@ -21,14 +21,14 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/rss"
+            android:src="@drawable/cal"
             android:layout_gravity="center"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:gravity="left"
-            android:text="Selecciona la fuente de noticias de tu preferencia."
+            android:text="Navega a través de las pestañas Hogar y Transporte."
             android:textSize="20sp"
             android:id="@+id/textView2"
             android:layout_height="wrap_content" />
@@ -36,14 +36,14 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
+            android:src="@drawable/hogar"
             android:layout_gravity="center"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:gravity="left"
-            android:text="Navega a través de los titulares."
+            android:text="Completa los campos requeridos, para así realizar el cálculo de tu Huella de Carbono."
             android:textSize="20sp"
             android:id="@+id/textView3"
             android:layout_height="wrap_content" />
@@ -51,13 +51,13 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
+            android:src="@drawable/transporte"
             android:layout_gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:gravity="left"
-            android:text="Disfruta del contenido ecológico."
+            android:text="Por último observarás el resultado de la emisión de CO2 que produces."
             android:textSize="20sp"
             android:id="@+id/textView4"
             android:layout_height="wrap_content" />
@@ -65,7 +65,7 @@
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/tuto1"
+            android:src="@drawable/total"
             android:layout_gravity="center"/>
     </LinearLayout>
 </ScrollView>
