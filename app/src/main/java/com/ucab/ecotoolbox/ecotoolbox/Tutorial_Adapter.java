@@ -22,8 +22,6 @@ public class Tutorial_Adapter extends FragmentPagerAdapter {
                 return new Tutorial_Fragment4();
             case 4:
                 return new Tutorial_Fragment5();
-            case 5:
-                return new Tutorial_Fragment6();
             default:
                 break;
         }
@@ -32,6 +30,6 @@ public class Tutorial_Adapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return 6;
+        return 5;
     }
 }
